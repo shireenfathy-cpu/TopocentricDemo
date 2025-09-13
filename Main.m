@@ -12,9 +12,9 @@ fprintf(" Shireen please enter the data \n")
     rng = input('Range (m): '); % distance to the target
 % % % Earth Parameters
     Re = 6378137;  % radius of Earth in meters 
-    f  = 1/298.257;    % how squished is the Earth (flattening)
+    f  = 1/298.257;  % how squished is the Earth (flattening)
 % % % Compute Positions
-    R_ecef   = geodetic2ecef(lat, lon, h, Re, f);  % my position in 3D space
+    R_ecef   = geodetic2ecef(lat, lon, h, Re, f);  % my position in 3d space
     rho_ecef = azelrange2ecef(A, el, rng, lat, lon);   % target vector from me
     r_ecef   = R_ecef + rho_ecef; % target absolute position
 % % % %  Plotting 
@@ -70,3 +70,4 @@ function rho_ecef = azelrange2ecef(A, el, rng, phi, lambda)
     T=[-sL cL 0; -sP*cL -sP*sL cP; cP*cL cP*sL sP];
     rho_ecef=T*[E;N;U]; % final vector from observer to target
 end
+
